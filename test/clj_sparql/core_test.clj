@@ -7,6 +7,11 @@
   (testing "FIXME."
     (is (= 0 0))))
 
-(deftest graphdb-test
+(comment
+  (deftest graphdb-test
   (testing "simple query")
-  (pprint (graphdb "KBS" "select ?s ?p ?o { ?s ?p ?o } limit 20")))
+  (pprint (graphdb "KBS" "select ?s ?p ?o { ?s ?p ?o } limit 20"))))
+
+(deftest fuseki-test
+  (testing "simple query")
+  (pprint (fuseki "news" "select ?s ?p ?o { ?s ?p ?o } limit 20")))

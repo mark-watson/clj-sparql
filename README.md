@@ -8,7 +8,7 @@ A Clojure library to provide a light-weight REST interface to:
 - DBPedia public RDF data store and SPARQL endpoint
 - WikiData public RDF data store and SPARQL endpoint
 
-NOTE: only GraphDB is implemented so far. Stay tuned.
+NOTE: only GraphDB and Fuseki are implemented so far. Stay tuned.
 
 ## Usage
 
