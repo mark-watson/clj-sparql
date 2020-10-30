@@ -8,7 +8,7 @@ A Clojure library to provide a light-weight REST interface to:
 - DBPedia public RDF data store and SPARQL endpoint
 - WikiData public RDF data store and SPARQL endpoint
 
-NOTE: only GraphDB and Fuseki are implemented so far. Stay tuned.
+NOTE: Allegro is not yet implemented. Stay tuned.
 
 ## Usage
 
@@ -16,7 +16,12 @@ Try:
 
     lein test
 
-and look at the source code for th unit tests.
+and look at the source code for the unit tests. You need to have the SPARQL endpoints running.
+In practice, you probably only have one SPARQL endpoint server that you are using so comment out the unit tests
+for servers you don't have running.
+
+DBPedia and WikiData are public services so those unit tests will run without
+having a local SPARQL endpoint server.
 
 ## License
 

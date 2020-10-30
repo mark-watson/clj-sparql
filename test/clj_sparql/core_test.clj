@@ -7,11 +7,18 @@
   (testing "FIXME."
     (is (= 0 0))))
 
-(comment
-  (deftest graphdb-test
-  (testing "simple query")
-  (pprint (graphdb "KBS" "select ?s ?p ?o { ?s ?p ?o } limit 20"))))
+(deftest graphdb-test
+  (testing "GraphDB query")
+  (pprint (graphdb "KBS" "select ?s ?p ?o { ?s ?p ?o } limit 20")))
 
 (deftest fuseki-test
-  (testing "simple query")
+  (testing "Fuseki query")
   (pprint (fuseki "news" "select ?s ?p ?o { ?s ?p ?o } limit 20")))
+
+(deftest dbpedia-test
+  (testing "DBPedia query")
+  (pprint (dbpedia "select ?s ?p ?o { ?s ?p ?o } limit 20")))
+
+(deftest wikidata-test
+  (testing "WikiDaa query")
+  (pprint (wikidata "select ?s ?p ?o { ?s ?p ?o } limit 5")))
