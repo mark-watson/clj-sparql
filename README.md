@@ -8,7 +8,7 @@ A Clojure library to provide a light-weight REST interface to:
 - DBPedia public RDF data store and SPARQL endpoint
 - WikiData public RDF data store and SPARQL endpoint
 
-NOTE: Allegro is not yet implemented. Stay tuned.
+NOTE: AllegroGraph is not yet implemented. Stay tuned.
 
 ## Usage
 
