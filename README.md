@@ -3,7 +3,6 @@
 A Clojure library to provide a light-weight REST interface to:
 
 - GraphDB RDF data store and SPARQL endpoint
-- AllegroGraph RDF data store and SPARQL endpoint
 - Apache Fuseki RDF data store and SPARQL endpoint
 - DBPedia public RDF data store and SPARQL endpoint
 - WikiData public RDF data store and SPARQL endpoint
@@ -12,7 +11,9 @@ NOTE: AllegroGraph is not yet implemented. Stay tuned.
 
 ## Usage
 
-Try:
+Edit the file `test/clj_sparql/core_test.clj` and uncomment the tests for the servers you have available.
+
+Then try:
 
     lein test
 

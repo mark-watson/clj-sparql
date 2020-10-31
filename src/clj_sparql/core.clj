@@ -26,7 +26,6 @@
   ([graph-name sparql-query] (fuseki-helper "http://127.0.0.1" 3030 graph-name sparql-query))
   ([host port graph-name sparql-query] (fuseki-helper host port graph-name sparql-query)))
 
-
 (defn dbpedia [sparql-query]
   (let [q (str "https://dbpedia.org//sparql?output=csv&query=" (url-encode sparql-query))
         _ (println q)
@@ -46,3 +45,4 @@
                      ((x v) "value")))
                  ((body "results") "bindings"))]
     (cons vars values)))
+
