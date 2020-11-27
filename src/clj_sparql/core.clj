@@ -2,6 +2,8 @@
   (:require [clj-http.client :as client])
   (:require [clojure.data.json :as json]))
 
+(use '[clojure.java.shell :only [sh]])
+
 (require '[cemerick.url :refer (url url-encode)])
 (require '[clojure.data.csv :as csv])
 
@@ -45,4 +47,16 @@
                      ((x v) "value")))
                  ((body "results") "bindings"))]
     (cons vars values)))
+
+(defn- agraph-helper [user passwd host port graph-name sparql-query]
+  (let [q
+        (str user ":" passwd "@" host ":" port "/repositories/" graph-name "?accept=text/csv&query="
+             (.replaceAll
+               (url-encode sparql-query) "%20" "+"))
+        response (:out (sh "curl" q "-s")) ]
+    (csv/read-csv response)))
+
+(defn agraph
+  ([graph-name sparql-query] (agraph-helper "mark" "mark" "127.0.0.1" 10035 graph-name sparql-query))
+  ([user passwd host port graph-name sparql-query] (agraph-helper user passwd host port graph-name sparql-query)))
 
