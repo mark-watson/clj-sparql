@@ -1,7 +1,8 @@
 (ns clj-sparql.core-test
   (:require [clojure.test :refer :all]
-            [clj-sparql.core :refer :all])
-  (:use clojure.pprint))
+            [clj-sparql.core :refer :all]
+            [clojure.pprint :use pprint]))
+;;  (:use clojure.pprint))
 
 (comment
 
@@ -24,5 +25,5 @@
     (testing "AllegroGraph query")
     (pprint (agraph "news" "select ?s ?p ?o { ?s ?p ?o } limit 20")))
   )
-
+  
 

@@ -1,10 +1,9 @@
 (ns clj-sparql.core
   (:require [clj-http.client :as client])
-  (:require [clojure.data.json :as json]))
+  (:require [clojure.data.json :as json])
+  (:require [clojure.java.shell :as shell]))
 
-(use '[clojure.java.shell :only [sh]])
-
-(require '[cemerick.url :refer (url url-encode)])
+(require '[cemerick.url :refer (url-encode)])
 (require '[clojure.data.csv :as csv])
 
 (defn- graphdb-helper [host port graph-name sparql-query]
@@ -35,8 +34,9 @@
         body (:body response)]
     (csv/read-csv body)))
 
-(defn wikidata [sparql-query]
+(defn wikidata 
   "note: WikiData currently does not return /text/csv values, even when requested"
+  [sparql-query]
   (let [q (str "http://query.wikidata.org/bigdata/namespace/wdq/sparql?query=" (url-encode sparql-query))
         response (client/get q {:accept "application/sparql-results+json"})
         body (json/read-str (:body response))
@@ -53,7 +53,7 @@
         (str user ":" passwd "@" host ":" port "/repositories/" graph-name "?accept=text/csv&query="
              (.replaceAll
                (url-encode sparql-query) "%20" "+"))
-        response (:out (sh "curl" q "-s")) ]
+        response (:out (shell/sh "curl" q "-s")) ]
     (csv/read-csv response)))
 
 (defn agraph
