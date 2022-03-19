@@ -24,5 +24,3 @@
     (testing "AllegroGraph query")
     (pprint (agraph "news" "select ?s ?p ?o { ?s ?p ?o } limit 20")))
   )
-
-

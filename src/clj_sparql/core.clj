@@ -30,7 +30,7 @@
 
 (defn dbpedia [sparql-query]
   (let [q (str "https://dbpedia.org//sparql?output=csv&query=" (url-encode sparql-query))
-        _ (println q)
+        ;; _ (println q)
         response (client/get q)
         body (:body response)]
     (csv/read-csv body)))
